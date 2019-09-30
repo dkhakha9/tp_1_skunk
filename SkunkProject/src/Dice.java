@@ -29,13 +29,14 @@ public class Dice
 
 		this.die1 = new Die();
 		this.die2 = new Die();
-		this.roll();
+		this.lastRoll = die1.getLastRoll() + die2.getLastRoll();
 	}
 
 	public Dice(Die die1, Die die2) // overloaded constructor
 	{
 		this.die1 = die1;
 		this.die2 = die2;
+		this.lastRoll = die1.getLastRoll() + die2.getLastRoll();
 	}
 
 	// Instance methods can also be declared anywhere in body of class
@@ -54,7 +55,11 @@ public class Dice
 		die1.roll();
 		die2.roll();
 		this.lastRoll = die1.getLastRoll() + die2.getLastRoll();
-
+	} /* roll */
+	
+	public boolean isInTestMode()
+	{
+		return (this.die1.isInTestMode() || this.die2.isInTestMode());
 	}
 
 	// the following method converts the internals of
