@@ -2,6 +2,7 @@ import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkApp
 {
+	public static final int NUM_CHIPS_TO_START = 50;
 
 	public static void main(String[] args)
 	{
