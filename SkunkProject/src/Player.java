@@ -4,6 +4,8 @@ public class Player
 	private String name;
 	private int chips;
 	private int score;
+	private int turnScore;
+	private boolean lastTurn;
 	
 	public Player(String name, int startingChips)
 	{
@@ -11,6 +13,8 @@ public class Player
 		assert startingChips >= 0;
 		this.chips = startingChips;
 		this.score = 0;
+		this.turnScore = 0;
+		this.lastTurn = false;
 	}
 	
 	public int drawPenalty(int penalty)
@@ -41,12 +45,25 @@ public class Player
 	public void addPoints(int earnedPoints)
 	{
 		assert earnedPoints >= 0;
-		this.score += earnedPoints;
+		this.turnScore += earnedPoints;
+	}
+	
+	// Successful end of turn, save the score
+	public void updateScore()
+	{
+		score += turnScore;
+		turnScore = 0;
 	}
 	
 	public void loseAllPoints()
 	{
 		this.score = 0;
+		this.turnScore = 0;
+	}
+	
+	public void loseTurnPoints()
+	{
+		turnScore = 0;
 	}
 	
 	public int getScore()
@@ -62,5 +79,15 @@ public class Player
 	public boolean hasChips()
 	{
 		return (this.chips > 0);
+	}
+	
+	public boolean hadLastTurn()
+	{
+		return lastTurn;
+	}
+	
+	public void onLastTurn()
+	{
+		lastTurn = true;
 	}
 }

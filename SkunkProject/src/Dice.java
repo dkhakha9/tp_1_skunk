@@ -65,12 +65,12 @@ public class Dice
 	// the following method converts the internals of
 	// this Dice object, and returns a descriptive String:
 	//
-	// Roll of 7 => 4 + 3
+	// 4 + 3, skunk + 1
 	//
 
 	public String toString()
 	{
-		return "Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll();
+		return die1.toString() + " + " + die2.toString();
 	}
 
 	// static methods can go anywhere - but at end is one convention

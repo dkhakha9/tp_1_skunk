@@ -48,7 +48,10 @@ public class Die
 	@Override
 	public String toString() // this OVERRIDES the default Object.toString()
 	{
-		return "Die: " + this.getLastRoll();
+		if (this.getLastRoll() == 1)
+			return "skunk";
+		else
+			return String.valueOf(this.getLastRoll());
 	}
 	
 	public boolean isInTestMode()
