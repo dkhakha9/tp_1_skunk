@@ -10,5 +10,4 @@ public class SkunkAppTest {
 		
 		assertFalse(skunk.isGameOver());
 	}
-
 }
