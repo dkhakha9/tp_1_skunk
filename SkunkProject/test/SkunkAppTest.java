@@ -108,6 +108,8 @@ public class SkunkAppTest
 		
 		skunkGame.submitResponse("OMG, not THESE two points!");
 		
+		assertTrue(skunkGame.isGameOver());
+		
 		assertEquals("Game over! Winner: Dmitry\n", skunkGame.nextMessage());
 	}
 	
@@ -258,6 +260,8 @@ public class SkunkAppTest
 		assertFalse(skunkGame.isGameOver());
 		
 		skunkGame.submitResponse("I think I win!");
+		
+		assertTrue(skunkGame.isGameOver());
 		
 		assertEquals("Game over! Winner: Eric\n", skunkGame.nextMessage());
 	}
