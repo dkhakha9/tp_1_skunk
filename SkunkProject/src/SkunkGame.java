@@ -22,13 +22,22 @@ public class SkunkGame
 		dice = new Dice();
 	}
 	
+	public SkunkGame(Integer[] die1Sequence, Integer[] die2Sequence)
+	{
+		this.Players = new ArrayList<>();
+		this.currentPlayer = -1;
+		this.hundredScored = false;
+		
+		dice = new Dice(die1Sequence, die2Sequence);
+	} /* testable SkunkGame */
+	
 	public boolean addPlayer(String name)
 	{
 		boolean duplicateName = false;
 		
 		for (Player player: Players)
 		{
-			if (player.getName().compareTo(name) == 0)
+			if (player.getName().toLowerCase().compareTo(name.toLowerCase()) == 0)
 			{
 				duplicateName = true;
 				break;

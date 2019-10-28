@@ -38,6 +38,13 @@ public class Dice
 		this.die2 = die2;
 		this.lastRoll = die1.getLastRoll() + die2.getLastRoll();
 	}
+	
+	public Dice(Integer[] die1Sequence, Integer[] die2Sequence) // overloaded constructor
+	{
+		this.die1 = new Die(die1Sequence);
+		this.die2 = new Die(die2Sequence);
+		this.lastRoll = die1.getLastRoll() + die2.getLastRoll();
+	} /* testable Dice */
 
 	// Instance methods can also be declared anywhere in body of class
 	// One convention: after the constructors

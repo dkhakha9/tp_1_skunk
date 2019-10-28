@@ -27,6 +27,14 @@ public class SkunkApp
 		this.updateGameState();
 	}
 	
+	public SkunkApp(Integer[] die1Sequence, Integer[] die2Sequence)
+	{
+		this.gameEngine = new SkunkGame(die1Sequence, die2Sequence);
+		this.gameState = STATE_REQUEST_PLAYER;
+		this.messageReady = false;
+		this.updateGameState();
+	} /* testable SkunkApp */
+	
 	private void updateCurrentMessage(String newMessage)
 	{
 		assert (!messageReady);
@@ -184,13 +192,7 @@ public class SkunkApp
 
 	public static void main(String[] args)
 	{
-		StdOut.println("Welcome to Skunk game!\nThis is next line yo!");
-
-		Dice dice = new Dice();
-		
-		dice.roll();
-		
-		StdOut.println("Your roll: " + dice.getLastRoll());
+		StdOut.println("Welcome to Skunk game!\n");
 		
 		SkunkApp skunkGame = new SkunkApp();
 		

@@ -96,6 +96,37 @@ public class TestDie
 	} /* testDieTestable1 */
 	
 	@Test
+	public void testDiceTestable12()
+	{
+		Integer[] testArr1 = {1, 5, 0};
+		Integer[] testArr2 = {6, 3, -5};
+		
+		Dice dice = new Dice(testArr1, testArr2);
+		
+		assertTrue(dice.isInTestMode()); // verify operating mode = test
+		
+		assertEquals(7, dice.getLastRoll()); // verify first roll value
+		
+		dice.roll();
+		
+		assertEquals(8, dice.getLastRoll()); // verify second roll value
+		
+		assertEquals(8, dice.getLastRoll()); // verify that value does not change without a roll
+		
+		dice.roll();
+		
+		assertEquals(-5, dice.getLastRoll()); // verify third roll value
+		
+		dice.roll();
+		
+		assertEquals(0, dice.getLastRoll()); // verify test sequence is exhausted (subtraction from minimum results in maximum)
+		
+		dice.roll();
+		
+		assertEquals(0, dice.getLastRoll()); // verify test sequence is exhausted (repeat)
+	} /* testDieTestable12 */
+	
+	@Test
 	public void testDiceTestable2()
 	{
 		Integer[] testArr1 = {3, 2, 7, 1};
@@ -128,6 +159,37 @@ public class TestDie
 		
 		assertEquals(0, dice.getLastRoll()); // verify test sequence 1 is exhausted (subtraction from minimum results in maximum)
 	} /* testDieTestable2 */
+	
+	@Test
+	public void testDiceTestable22()
+	{
+		Integer[] testArr1 = {3, 2, 7, 1};
+		Integer[] testArr2 = {6, 1, -15};
+		
+		Dice dice = new Dice(testArr1, testArr2);
+		
+		assertTrue(dice.isInTestMode()); // verify operating mode = test
+		
+		assertEquals(9, dice.getLastRoll()); // verify first roll value
+		
+		dice.roll();
+		
+		assertEquals(3, dice.getLastRoll()); // verify second roll value
+		
+		assertEquals(3, dice.getLastRoll()); // verify that value does not change without a roll
+		
+		dice.roll();
+		
+		assertEquals(-8, dice.getLastRoll()); // verify third roll value
+		
+		dice.roll();
+		
+		assertEquals(Integer.MIN_VALUE + 1, dice.getLastRoll()); // verify test sequence 2 is exhausted
+		
+		dice.roll();
+		
+		assertEquals(0, dice.getLastRoll()); // verify test sequence 1 is exhausted (subtraction from minimum results in maximum)
+	} /* testDieTestable22 */
 	
 	@Test
 	public void testDiceHalfTestable1()
